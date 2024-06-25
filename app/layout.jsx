@@ -1,4 +1,5 @@
 import "@/assets/styles/globals.css";
+import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
 import PropTypes from "prop-types";
 
@@ -14,6 +15,7 @@ const MainLayout = ({ children }) => {
       <body>
         <NavBar />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
