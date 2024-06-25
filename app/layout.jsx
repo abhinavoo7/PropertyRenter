@@ -1,4 +1,5 @@
 import "@/assets/styles/globals.css";
+import NavBar from "@/components/NavBar";
 import PropTypes from "prop-types";
 
 export const metadata = {
@@ -10,7 +11,10 @@ export const metadata = {
 const MainLayout = ({ children }) => {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <NavBar />
+        <main>{children}</main>
+      </body>
     </html>
   );
 };
