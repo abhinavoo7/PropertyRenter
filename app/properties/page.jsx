@@ -1,13 +1,22 @@
-import Link from "next/link";
+import { NO_PROPERTIES_FOUND } from "@/lib/constants";
+import properties from "@/lib/properties.json";
+import { isEmpty } from "@/utils/utils";
 
 const PropertiesPage = () => {
   return (
-    <div className="flex flex-col">
-      <span className="font-medium text-xl">Properties page</span>
-      <Link href="/" className="text-xl m-1 visited:text-purple-600">
-        Go Home
-      </Link>
-    </div>
+    <section className="px-4 py-6">
+      <div className="container-xl lg:container m-auto px-4 py-6">
+        {isEmpty(properties) ? (
+          <span>{NO_PROPERTIES_FOUND}</span>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {properties.map(({ name }, index) => (
+              <span key={index}>{name}</span>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
   );
 };
 
