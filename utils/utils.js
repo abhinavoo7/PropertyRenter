@@ -24,3 +24,12 @@ export const isEmpty = (data) => {
     (Array.isArray(data) && data.length === 0)
   );
 };
+
+/**
+ * @description function to convert text in pascal case
+ * @param {String} text
+ * @returns {String}
+ */
+export const convertTextToPascalCase = (text) => {
+  return text?.trim()?.replace(/(?:^|\b)(\w)/g, (match) => match.toUpperCase());
+};

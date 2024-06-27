@@ -1,3 +1,4 @@
+import PropertyCard from "@/components/PropertyCard";
 import { NO_PROPERTIES_FOUND } from "@/lib/constants";
 import properties from "@/lib/properties.json";
 import { isEmpty } from "@/utils/utils";
@@ -10,8 +11,8 @@ const PropertiesPage = () => {
           <span>{NO_PROPERTIES_FOUND}</span>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {properties.map(({ name }, index) => (
-              <span key={index}>{name}</span>
+            {properties.map((property) => (
+              <PropertyCard key={property._id} {...property} />
             ))}
           </div>
         )}

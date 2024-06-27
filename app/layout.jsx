@@ -1,7 +1,7 @@
 import "@/assets/styles/globals.css";
 import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
-import { META_DATA } from "@/lib/constants";
+import { META_DATA } from "@/lib/Constants";
 import PropTypes from "prop-types";
 
 export const metadata = {
