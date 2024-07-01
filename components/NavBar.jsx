@@ -7,11 +7,13 @@ import profileDefault from "@/assets/images/profile.png";
 import { FaGoogle } from "react-icons/fa";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import PATHS from "@/config/Routes/routes";
+import { BUTTON_TEXTS, SCREEN_MESSAGES } from "@/lib/Constants";
 
 const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, _setIsLoggedIn] = useState(false);
   const pathname = usePathname();
 
   return (
@@ -49,46 +51,46 @@ const NavBar = () => {
 
           <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
             {/* Logo */}
-            <Link className="flex flex-shrink-0 items-center" href="/">
+            <Link className="flex flex-shrink-0 items-center" href={PATHS.HOME}>
               <Image className="h-10 w-auto" src={logo} alt="PropertyPulse" />
 
               <span className="hidden md:block text-white text-2xl font-bold ml-2">
-                PropertyPulse
+                {SCREEN_MESSAGES.NAV_BAR.NAME}
               </span>
             </Link>
             {/* Desktop Menu Hidden below md screens */}
             <div className="hidden md:ml-6 md:block">
               <div className="flex space-x-2">
                 <Link
-                  href="/"
+                  href={PATHS.HOME}
                   className={`${
                     pathname === "/"
                       ? "bg-black text-white rounded-md px-3 py-2"
                       : ""
                   }text-white  hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
                 >
-                  Home
+                  {SCREEN_MESSAGES.NAV_BAR.HOME}
                 </Link>
                 <Link
-                  href="/properties"
+                  href={PATHS.PROPERTIES}
                   className={`${
-                    pathname === "/properties"
+                    pathname === PATHS.PROPERTIES
                       ? "bg-black text-white rounded-md px-3 py-2"
                       : ""
                   }text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
                 >
-                  Properties
+                  {SCREEN_MESSAGES.NAV_BAR.PROPERTIES}
                 </Link>
                 {isLoggedIn && (
                   <Link
-                    href="/properties/add"
+                    href={PATHS.ADD_PROPERTY}
                     className={`${
-                      pathname === "/properties/add"
+                      pathname === PATHS.ADD_PROPERTY
                         ? "bg-black text-white rounded-md px-3 py-2"
                         : ""
                     }text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
                   >
-                    Add Property
+                    {SCREEN_MESSAGES.NAV_BAR.ADD_PROPERTY}
                   </Link>
                 )}
               </div>
@@ -101,7 +103,7 @@ const NavBar = () => {
               <div className="flex items-center">
                 <button className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2">
                   <FaGoogle className="text-white mr-2" />
-                  <span>Login or Register</span>
+                  <span>{BUTTON_TEXTS.LOGIN}</span>
                 </button>
               </div>
             </div>
@@ -206,38 +208,38 @@ const NavBar = () => {
         <div id="mobile-menu">
           <div className="space-y-1 px-2 pb-3 pt-2">
             <Link
-              href="/"
+              href={PATHS.HOME}
               className={`${
                 pathname === "/" ? "bg-black text-white font-semibold" : ""
               }text-white  hover:bg-gray-900 hover:text-white block px-3 py-2`}
             >
-              Home
+              {SCREEN_MESSAGES.NAV_BAR.HOME}
             </Link>
             <Link
-              href="/properties"
+              href={PATHS.PROPERTIES}
               className={`${
-                pathname === "/properties"
+                pathname === PATHS.PROPERTIES
                   ? "bg-black text-white font-semibold"
                   : ""
               }text-white  hover:bg-gray-900 hover:text-white block  px-3 py-2`}
             >
-              Properties
+              {SCREEN_MESSAGES.NAV_BAR.PROPERTIES}
             </Link>
             {isLoggedIn && (
               <Link
-                href="/properties/add"
+                href={PATHS.ADD_PROPERTY}
                 className={`${
-                  pathname === "/properties/add"
+                  pathname === PATHS.ADD_PROPERTY
                     ? "bg-black text-white font-semibold"
                     : ""
                 }text-white  hover:bg-gray-900 hover:text-white block  px-3 py-2`}
               >
-                Add Property
+                {SCREEN_MESSAGES.NAV_BAR.ADD_PROPERTY}
               </Link>
             )}
             {!isLoggedIn && (
               <button className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white  px-3 py-2 my-4">
-                <span>Login or Register</span>
+                <span>{BUTTON_TEXTS.LOGIN}</span>
               </button>
             )}
           </div>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import logo from "@/assets/images/logo.png";
+import { SCREEN_MESSAGES } from "@/lib/Constants";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -13,7 +14,7 @@ const Footer = () => {
         </div>
         <div>
           <p className="text-sm text-gray-500 mt-2 md:mt-0">
-            &copy; {currentYear} PropertyRenter. All rights reserved.
+            &copy; {currentYear} {SCREEN_MESSAGES.FOOTER_CONTENT}
           </p>
         </div>
       </div>
