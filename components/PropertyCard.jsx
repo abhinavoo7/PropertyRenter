@@ -10,6 +10,8 @@ import {
   FaMoneyBill,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import { BUTTON_TEXTS, INPUTS } from "@/lib/Constants";
+import PATHS from "@/config/Routes/routes";
 
 const PropertyCard = ({
   _id,
@@ -51,23 +53,23 @@ const PropertyCard = ({
           <div className="text-gray-600">{type}</div>
           <h3 className="text-xl font-bold">{name}</h3>
         </div>
-        <h3 className="absolute top-[10px] right-[10px] bg-white px-4 py-2 rounded-lg text-blue-500 font-bold text-right md:text-center lg:text-right">
+        <h3 className="absolute top-1 right-1 bg-white px-4 py-2 rounded-lg text-blue-500 font-bold text-right md:text-center lg:text-right">
           ${getRateDisplay()}
         </h3>
 
         <div className="flex justify-center gap-4 text-gray-500 mb-4">
           <p>
             <FaBed className="inline mr-2" /> {beds}
-            <span className="md:hidden lg:inline"> Beds</span>
+            <span className="md:hidden lg:inline"> {INPUTS.LABELS.BEDS}</span>
           </p>
           <p>
             <FaBath className="inline mr-2" /> {baths}
-            <span className="md:hidden lg:inline"> Baths</span>
+            <span className="md:hidden lg:inline"> {INPUTS.LABELS.BATHS}</span>
           </p>
           <p>
             <FaRulerCombined className="inline mr-2" />
             {squareFeet}
-            <span className="md:hidden lg:inline"> sqft</span>
+            <span className="md:hidden lg:inline"> {INPUTS.LABELS.AREA}</span>
           </p>
         </div>
 
@@ -91,10 +93,10 @@ const PropertyCard = ({
             </span>
           </div>
           <Link
-            href={`/properties/${_id}`}
+            href={`${PATHS.PROPERTIES}/${_id}`}
             className="h-[36px] bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-center text-sm"
           >
-            Details
+            {BUTTON_TEXTS.DETAILS}
           </Link>
         </div>
       </div>
