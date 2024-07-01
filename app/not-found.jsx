@@ -1,4 +1,9 @@
-import { META_DATA_404 } from "@/lib/Constants";
+import PATHS from "@/config/Routes/routes";
+import {
+  BUTTON_TEXTS,
+  META_DATA_404,
+  NOT_FOUND_MESSAGES,
+} from "@/lib/Constants";
 import Link from "next/link";
 import React from "react";
 import { FaExclamationTriangle } from "react-icons/fa";
@@ -18,18 +23,17 @@ const NotFound = () => {
           <div className="text-center">
             <h1 className="text-3xl font-bold mt-4 mb-2">Page Not Found</h1>
             <p className="text-gray-500 text-xl mb-10">
-              The page you are looking for does not exist.
+              {NOT_FOUND_MESSAGES.PAGE_NOT_FOUND}
             </p>
             <Link
-              href="/"
+              href={PATHS.HOME}
               className="bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 px-6 rounded"
             >
-              Go Home
+              {BUTTON_TEXTS.GO_HOME}
             </Link>
           </div>
         </div>
       </div>
-      <div className="flex-grow"></div>
     </section>
   );
 };
